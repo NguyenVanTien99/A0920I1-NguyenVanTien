@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bt</title>
+</head>
+<body>
+    <button type="button" onclick="showMessage();">Click Me 1!</button>
+    <button type="button" onclick="showMessage1();" id="bt2">Click Me 2!</button>
+    <button type="button" onclick="showMessage2();">Click Me 3!</button>
+    <button type="button" onclick="showMessage3();">Click Me 5!</button>
+    <script>
+     function showMessage(){
+         alert('Xin Chào')
+     }
+     function showMessage1(){
+         document.getElementById('bt2').innerHTML = 'Xin Chào !'
+     }
+     function showMessage2(){
+         document.write('Xin Chào !')
+     }
+     function showMessage3(){
+         console.log('Xin Chào !')
+     }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Checkbox Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <style>
+        .good{
+            background: green ;
+        }
+    </style>
+<body>
+
+    <div class="container">
+
+        <input type="checkbox" class="good" onchange="changed(this)">
+        <label for="good">Good</label><br>
+        <input type="checkbox" class="fast" onchange="changed(this)">
+        <label for="fast">Fast</label><br>
+        <input type="checkbox" class="cheap" onchange="changed(this)">
+        <label for="cheap">Cheap</label>
+
+    </div>
+
+    <script>
+         good = document.querySelector('.good'),
+         fast = document.querySelector('.fast'),
+         cheap = document.querySelector('.cheap');
+         
+        function changed(el) {
+            isGood = good.checked;
+            isFast = fast.checked;
+            isCheap = cheap.checked;
+
+            if (isGood && isFast && isCheap && el == cheap) {
+                fast.checked = false;
+            }
+
+            if (isGood && isCheap && isFast && el == fast) {
+                good.checked = false;
+            }
+
+            if (isCheap && isFast && isGood && el == good) {
+                cheap.checked = false;
+            }
+            console.log(el);
+
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt('nhap canh thu nhat cua tam giac'))
+        let b = parseFloat(prompt('nhap canh thu hai cua tam giac'))
+        let c = parseFloat(prompt('nhap canh thu ba cua tam giac'))
+        if(a>0 && b>0 && c>0){
+            if(a+b>c && a+c>b && b+c>a){
+                alert('a,b,c la mot canh cua tam giac')
+            }else{
+                alert('a,b,c khong phai la ba canh cua tam gic')
+            }
+        }else{
+            alert('so ban nhap khong phai la do dai mot canh cua tam giac')
+        }
+    </script>
+</body>
+</html>

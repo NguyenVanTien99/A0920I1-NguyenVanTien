@@ -1,0 +1,13 @@
+*{
+  margin:0;
+  padding:0;
+}
+#container > #kq{
+  width:17.7em;
+  height:3em;
+}
+#container > input{
+  width:3em;
+  height:3em;
+  margin:0.2em;
+}

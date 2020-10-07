@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let diemMot = parseFloat(prompt('Nhap diem Mieng'));
+        let diemHai = parseFloat(prompt('Nhap diem 15p'));
+        let diemBa  = parseFloat(prompt('Nhap diem mot tiet'));
+        let diemBon = parseFloat(prompt('Nhap diem thi HK'))
+
+        let diemTB = (diemMot + diemHai + diemBa*2 + diemBon*3)/7
+
+        if(diemTB >= 8){
+            alert('GIOI')
+        }else if(diemTB>=6.5){
+            alert('KHA')
+        }else if(diemTB>=5){
+            alert('TB')
+        }else{
+            alert('YEU')
+        }
+
+    </script>
+</body>
+</html>

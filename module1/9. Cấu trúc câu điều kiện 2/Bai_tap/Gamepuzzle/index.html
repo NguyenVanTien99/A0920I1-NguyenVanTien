@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        img{
+            width: 600px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img1/panda.jpg" onclick="check()" alt="" id="img1"> <br> 
+    <img src="./img1/panda2.jpg" onclick="check2()" alt="" id="img2"> <br>
+    <img src="./img1/panda3.jpg" onclick="check3()" alt="" id="img3"> <br>
+    <img src="./img1/panda4.jpg" onclick="check4()" alt="" id="img4"> <br>
+    <img src="./img1/panda5.jpg" onclick="check5()" alt="" id="img5"> <br>
+    <script>
+        const pic1 = document.getElementById('img1')
+        const pic2 = document.getElementById('img2')
+        const pic3 = document.getElementById('img3')
+        const pic4 = document.getElementById('img4')
+        const pic5 = document.getElementById('img5')
+        function check(){
+            let s1 = pic1.getAttribute('src')
+            if(s1 == './img1/panda.jpg'){
+                pic1.src = './img2/cat.jpg'
+            }else if(s1 == './img2/cat.jpg'){
+                pic1.src = './img3/monkey.jpg'
+            }else{
+                pic1.src = './img1/panda.jpg'
+            }        
+        }
+        function check2(){
+            let s2 = pic2.getAttribute('src')
+            if(s2 == './img1/panda2.jpg'){
+                pic2.src = './img2/cat2.jpg'
+            }else if(s2 == './img2/cat2.jpg'){
+                pic2.src = './img3/monkey2.jpg'
+            }else{
+                pic2.src = './img1/panda2.jpg'
+            }        
+        }
+        function check3(){
+            let s3 = pic3.getAttribute('src')
+            if(s3 == './img1/panda3.jpg'){
+                pic3.src = './img2/cat3.jpg'
+            }else if(s3 == './img2/cat3.jpg'){
+                pic3.src = './img3/monkey3.jpg'
+            }else{
+                pic3.src = './img1/panda3.jpg'
+            }        
+        }
+        function check4(){
+            let s4 = pic4.getAttribute('src')
+            if(s4 == './img1/panda4.jpg'){
+                pic4.src = './img2/cat4.jpg'
+            }else if(s4 == './img2/cat4.jpg'){
+                pic4.src = './img3/monkey4.jpg'
+            }else{
+                pic4.src = './img1/panda4.jpg'
+            }        
+        }
+        function check5(){
+            let s5 = pic5.getAttribute('src')
+            if(s5 == './img1/panda5.jpg'){
+                pic5.src = './img2/cat5.jpg'
+            }else if(s5 == './img2/cat5.jpg'){
+                pic5.src = './img3/monkey5.jpg'
+            }else{
+                pic5.src = './img1/panda5.jpg'
+            }        
+        }
+    </script>
+</body>
+</html>

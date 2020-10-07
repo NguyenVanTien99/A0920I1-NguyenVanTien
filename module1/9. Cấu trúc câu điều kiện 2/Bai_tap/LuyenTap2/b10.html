@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let w = parseInt(prompt('nhap so kWh'));
+
+        if (w > 401) {
+            alert('so tien dien cua ban la: ' + w * 2.927 + ' VND')
+        } else if (w > 301) {
+            alert('so tien dien cua ban la: ' + w * 2.834 + ' VND')
+        } else if (w > 301) {
+            alert('so tien dien cua ban la: ' + w * 2.536 + ' VND')
+        } else if (w > 201) {
+            alert('so tien dien cua ban la: ' + w * 2.014 + ' VND')
+        } else if (w > 51) {
+            alert('so tien dien cua ban la: ' + w * 1.734 + ' VND')
+        } else {
+            alert('so tien dien cua ban la: ' + w * 1.678 + ' VND')
+        }
+    </script>   
+</body>
+
+</html>

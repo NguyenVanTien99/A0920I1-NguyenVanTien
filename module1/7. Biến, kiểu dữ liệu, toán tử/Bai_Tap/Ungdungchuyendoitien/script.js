@@ -26,6 +26,3 @@ function convertMoney(){
     console.log((currency1.value == 'VND' && currency2.value == 'USD'));
     console.log((currency1.value == 'USD' && currency2.value == 'VND'))
 }
-
-
-

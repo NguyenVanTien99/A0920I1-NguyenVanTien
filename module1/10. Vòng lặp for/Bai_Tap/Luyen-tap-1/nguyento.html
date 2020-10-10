@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function nguyento(n){
+            let i = 0;
+            let count = 0;
+            let tong = 0;
+            while(count<n){
+                if(i%7 == 0){
+                    tong = tong + i
+                    count ++
+                }
+                i++
+            }
+            console.log(tong);
+        }
+        nguyento(30)
+    </script>
+</body>
+</html>

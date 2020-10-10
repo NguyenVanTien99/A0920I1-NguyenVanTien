@@ -8,19 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <style>
-        .good{
-            background: green ;
-        }
+
     </style>
 <body>
 
     <div class="container">
 
-        <input type="checkbox" class="good" onchange="changed(this)">
+        <input type="checkbox" class="good" onclick="changed(this)">
         <label for="good">Good</label><br>
-        <input type="checkbox" class="fast" onchange="changed(this)">
+        <input type="checkbox" class="fast" onclick="changed(this)">
         <label for="fast">Fast</label><br>
-        <input type="checkbox" class="cheap" onchange="changed(this)">
+        <input type="checkbox" class="cheap" onclick="changed(this)">
         <label for="cheap">Cheap</label>
 
     </div>
@@ -46,7 +44,6 @@
             if (isCheap && isFast && isGood && el == good) {
                 cheap.checked = false;
             }
-            console.log(el);
 
         }
     </script>

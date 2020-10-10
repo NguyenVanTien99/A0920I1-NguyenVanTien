@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number=parseInt(prompt('nhap vao so fibo muon in'))
+        
+        // truy hồi
+        function fibo(num){
+            if(num == 1 || num == 2 ){
+               return 1
+            }
+            let a1 = 1;
+            let a2 = 1;
+            let a;
+            let i = 3;
+            while(i <= num){
+                a = a1 + a2;
+                a1 = a2;
+                a2 = a;
+                i++
+            }
+                return a
+        }
+        document.writeln(fibo(number))
+
+
+        
+        // đệ quy
+        // function fibo(num){
+        //     if (num == 1 || num == 2)
+        //         return 1;
+        //     return fibo(num - 1) + fibo(num - 2);
+        // }
+
+        // document.writeln('1'+' '+'1')
+        // function fibo(num){
+        //     let a1 = 1;
+        //     let a2 = 1;
+        //     let a;
+        //     let i = 3;
+        //     while(i <= num){
+        //         a = a1 + a2;
+        //         a1 = a2;
+        //         a2 = a;
+        //         document.writeln(a+' ')
+        //         i++
+        //     }
+        // }
+        document.writeln(fibo(number))
+    </script>
+</body>
+</html>
+

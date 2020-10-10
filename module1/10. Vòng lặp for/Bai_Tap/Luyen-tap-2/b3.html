@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (let i = 1; i < 6; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.writeln('*')
+            }
+            document.writeln('<br>')
+        }
+
+        document.writeln('<br>')
+
+        for (let i = 1; i <= 5; i++) {
+            for (let j = i; j <= 5; j++) {
+                document.writeln('*')
+            }
+
+            document.writeln('<br>')
+
+        }
+
+        document.writeln('<br>')
+
+        for (let i = 1; i <= 5; i++) {
+            // khoang trang &nbsp
+            for (let j = i; j <= 4; j++) {
+                document.writeln('&nbsp&nbsp')
+            }
+            for (let j = 1; j <= i; j++) {
+                document.writeln('*')
+            }
+
+            document.writeln('<br>')
+        }
+
+        document.writeln('<br>')
+
+        for (let i = 1; i <= 5; i++) {
+            // khoang trang &nbsp
+
+            for (let j = 1; j < i; j++) {
+                document.writeln('&nbsp&nbsp')
+            }
+            for (let j = i; j <= 5; j++) {
+                document.writeln('*')
+            }
+
+            document.writeln('<br>')
+        }
+
+        document.writeln('<br>')
+
+        for(let i = 1; i <= 7; i++ ){
+            for(j = 1; j <= 20; j++ ){
+                if(i == 1 || j == 1 || i == 7 || j == 20){
+                    document.writeln('*')
+                }else{
+                    document.writeln('&nbsp&nbsp')
+                }
+                
+            }
+            document.writeln('<br>')
+        }
+
+
+            
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- for(int i = 1; i <= n; i++)    {
+   for(int k = 1 ; k <= m; k++){
+       if(i == 1 || k == 1 || i == n || k == m){
+          printf("*");=
+       }
+      else{
+             printf(" ");
+       }
+     }
+    printf("\n"); -->
+<!-- int main()
+    {
+        int soDong;
+        cout << "Nhap so dong: ";
+        cin >> soDong;
+        for(int i = 1; i <= soDong; i++) { 
+            // in ky tu khoang trang
+            for(int j = i; j < soDong; j++) {
+                cout << " ";
+            }
+     
+            // in ky tu ngoi sao
+            for(int j = 1; j <= (2*i-1); j++) {
+                cout << "*";
+            }
+     
+            // xuong dong ke tiep
+            cout << endl;
+        }
+        return 0;
+    } -->

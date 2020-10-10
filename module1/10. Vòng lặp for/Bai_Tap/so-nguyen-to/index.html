@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let number = parseInt(prompt("nhập số n"))
+        // let flag = true;
+        // if(number < 2){
+        //     flag = false;
+        // }else{
+        //     for(let i=2;i < number-1; i++){
+        //         if(number % i == 0){
+        //             flag = false;
+        //         }
+        //     }
+        // }
+
+        // if(flag == true){
+        //     alert('day la so nguyen to')
+        // }else{
+        //     alert('day khong phai la so nguyen to');
+        // }
+
+        let number = parseInt(prompt("nhập số n"))
+        let count = 0
+        let N = 2
+
+        function checkPrime(num){
+                if(num<2){
+                    return false
+                }else{
+                    for(let i = 2; i < num; i++){
+                        if(num%i == 0){
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
+
+        while(count < number){
+            if(checkPrime(N)){
+                document.write(N+' ')
+                count ++;
+            }
+            N++
+        }
+
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- chinh hop, to hop, giai thua -->

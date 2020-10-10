@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- <button style="position:relative" ></button> -->
     <img id="nobita" src="images/ig.jpg" style="position:absolute;left:0; top:0;" height="100" width="80" />
     <script>
         function upArrowPressed() {
@@ -49,11 +50,13 @@
         }
 
         function docReady() {
-            window.addEventListener('keydown', moveSelection);
+            window.addEventListener('keyup', moveSelection);
         } 
+
+        onload=docReady();
         
     </script>
-         <body onload="docReady()"></body>
+         <!-- <body onload="docReady()"></body> -->
 </body>
 
 </html>

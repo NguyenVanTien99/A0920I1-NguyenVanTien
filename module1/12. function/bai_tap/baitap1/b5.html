@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let input = prompt('nhập chòm sao cần tìm kiếm')
+
+        let arr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+        let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+
+        function check(param) {
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] == param) {
+                    alert(arr2[i]);
+                }
+            }
+            alert('không tìm thấy')
+        }
+        check(input)
+    </script>
+</body>
+
+</html>

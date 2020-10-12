@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #btn {
+            text-align: center;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="btn">
+        <button onclick="guessANumber()">Play</button>
+        <button onclick="guessANumber()">play Again</button>
+
+    </div>
+
+    <script>
+
+        function guessANumber() {
+
+            let randomNum = Math.floor(Math.random() * 10) + 1;
+            console.log(randomNum);
+
+            let message;
+
+            let input = 0;
+
+            while (input < 3) {
+
+                let guess = parseInt(prompt("Please input a number between 1 and 10!", 0));
+
+                while (isNaN(guess) || guess < 0 || guess > 10) {
+                    guess = prompt("That wasn't a valid number. Please re-enter", 0);
+                }
+                // guess = parseInt(guess);
+
+                console.log("Guess: " + guess);
+
+                if (guess > randomNum) {
+                    message = "Your guess is too high!";
+                } else if (guess < randomNum) {
+                    message = "Your guess is too low!";
+                } else if (guess == randomNum) {
+                    message = "Congratulation. YOU WIN!";
+                } else {
+                    message = ""
+                }
+                input++;
+                console.log(input);
+
+                alert(message);
+            }
+
+            if (input >= 3) {
+                message = "Sorry, YOU LOSE!";
+            }
+            alert(message);
+        }
+
+    </script>
+</body>
+
+</html>

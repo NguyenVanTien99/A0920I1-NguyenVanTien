@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookList</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style></style>
+</head>
+<body>
+    <div>
+        <h1>Add New Product</h1>
+    </div>
+
+    <div>
+        <form action="javascript:void(0);" onsubmit="add()">
+            <input type="text" id="add-book" placeholder="New book">
+            <input type="submit" value="ADD" id="add-btn">
+        </form>
+    </div>
+
+    <div>
+        <h1>Display All Books</h1>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th><h2>Book Name</h2></th>
+            </tr>
+            <tbody id="books">
+                <!-- \<td></td> -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="edit-box" role="aria-hidden">
+        <form action="javascript:void(0);" id="save-edit">
+            <input type="text" id="edit-book" placeholder="edit book">
+            <input type="submit" value="EDIT" id="add-btn">
+            <a onclick="CloseInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkDoiXung(str,dau,cuoi) {
+            if(dau>=cuoi) {
+                return true;
+            }
+            if(str[dau]==str[cuoi]) {
+                return checkDoiXung(str,dau+1,cuoi-1);
+            } else {
+                return false;
+            }
+        }
+        let str="abcba"
+        alert(checkDoiXung(str,0,str.length-1))
+        </script>
+</body>
+</html>

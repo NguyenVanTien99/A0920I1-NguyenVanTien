@@ -1,3 +1,4 @@
+// b2
 // let myColor = ["Red", "Green", "White", "Black"];
 // console.log(myColor.toString());
 // console.log(myColor.join());
@@ -7,6 +8,7 @@
 
 // let result = [num[0]]
 
+// b1
 // for(let i = 1; i < num.length; i++ ){
 //     if(num[i-1] % 2 === 0 && num[i] % 2 ===0 ){
 //         result.push('-',num[i]);
@@ -15,6 +17,8 @@
 //     }
 // }
 // console.log(result.join(''));
+
+// b3
 var str = 'The Quick Brown Fox';
 var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var LOWER = 'abcdefghijklmnopqrstuvwxyz';

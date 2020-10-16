@@ -14,4 +14,4 @@ function isPrime(num){
 }
 
 let a = 37
-isPrime(31)
+isPrime(999)

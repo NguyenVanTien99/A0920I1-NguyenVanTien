@@ -10,17 +10,26 @@
 <body>
     <script>
         let input = prompt('nhập chòm sao cần tìm kiếm')
+        console.log(typeof input);
 
         let arr1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
         let arr2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+        console.log(arr1.indexOf('Polaris'));
 
         function check(param) {
-            for (let i = 0; i < arr1.length; i++) {
-                if (arr1[i] == param) {
-                    alert(arr2[i]);
-                }
+            if(param){
+                if(arr1.indexOf(param) !== -1){ //arr.indexOf(ele) trả về -1 nếu ele không tồn tại trong arr
+                console.log(arr1.indexOf(param) !== -1);
+                alert(arr2[arr1.indexOf(param)])
+            }else{
+                console.log(arr1.indexOf(param) !== -1)
+                console.log(arr1.indexOf(param));
+                alert('Không tìm thấy')
             }
-            alert('không tìm thấy')
+            }else{
+                alert('bạn chưa nhập gì cả')
+            }
+
         }
         check(input)
     </script>

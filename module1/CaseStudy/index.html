@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furama</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Furama Management</th>
+      </tr>
+    </thead>
+  </table>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <!-- menu -->
+        <div class="vertical-menu">
+          <a class="active">Menu</a>
+          <a onclick="addNewCustomer()">1. Add New Customer. </a>
+          <a onclick="showCustomer()">2. Display Information Customer.</a>
+          <a onclick="editCustomer()">3. Edit Information Customer.</a>
+          <a onclick="deleteCustomer()">4. Delete Customer.</a>
+          <a onclick="exit()">5. Exit</a>
+        </div>
+        <br>
+        <br>
+        <!-- form -->
+        <div class="form-add show">
+        <div>
+          <h3 id="tag">Add New Customer</h3>
+        </div>
+        <br>
+        <form action="javascript:void(0);" onsubmit="add()">
+          <div class="form-group ">
+            <label>Full name:</label>
+            <input type="text" class="form-control" id="fullname" placeholder="fullname">
+          </div>
+          <div class="form-group ">
+            <label>Identification</label>
+            <input onchange="validateID()" type="text" class="form-control" id="ID" placeholder="Identification">
+            <div class="alert alert-danger alert-ID show" role="alert">
+              ID is not valid
+            </div>
+          </div>
+          <div class="form-group ">
+            <label>Day of birth</label>
+            <input type="date" class="form-control" id="dayofbirth" placeholder="Day of birth">
+          </div>
+          <div class="form-group ">
+            <label>Email</label>
+            <input onchange="validateEmail()" type="email" class="form-control" id="email" placeholder="Email">
+            <div class="alert alert-danger alert-email show" role="alert">
+              Email is not valid
+            </div>
+          </div>
+          <div class="form-group ">
+            <label>Address</label>
+            <input type="text" class="form-control" id="Address" placeholder="Address">
+          </div>
+          <div class="form-group">
+            <label>Ranks</label>
+            <select id="ranks" class="form-control">
+              <option value="Diamond">Diamond</option>
+              <option value="Platinum">Platinum</option>
+              <option value="Gold">Gold</option>
+              <option value="Silver">Silver</option>
+              <option value="Member">Member</option>
+            </select>
+          </div>
+          <div class="form-group ">
+            <label>Discount(%)</label>
+            <input type="text" class="form-control" id="discount" placeholder="Discount">
+          </div>
+          <div class="form-group ">
+            <label>Number of people</label>
+            <input onchange="validatePp()" type="text" class="form-control" id="numberofpeople" placeholder="Number of people">
+            <div class="alert alert-danger alert-pp show" role="alert">
+              Number is not valid
+            </div>
+          </div>
+          <div class="form-group ">
+            <label>Rent Days</label>
+            <input onchange="validateRentDay()" type="text" class="form-control" id="rentdays" placeholder="Rent Days">
+            <div class="alert alert-danger alert-rentday show" role="alert">
+              Number is not valid
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Services</label>
+            <select id="services" class="form-control">
+              <option value="Villa">Villa</option>
+              <option value="House">House</option>
+              <option value="Room">Room</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type Rooms</label>
+            <select id="typerooms" class="form-control">
+              <option value="Vip">Vip</option>
+              <option value="Business">Business</option>
+              <option value="Normal">Normal</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Customer</button>
+        </form>
+        </div>
+
+
+        </div>
+        <div class="col-lg-9">
+          <div class="alert alert-success alert-success-add show" role="alert">
+            Successfully added customers
+          </div>
+
+          <div class="alert alert-success alert-success-edit show" role="alert">
+            Successfully Edited customers
+          </div>
+
+          <div class="alert alert-success alert-success-remove show" role="alert">
+            Successfully Removed customers
+          </div>
+
+          <div class="table-edit show">
+            <h1>Edit customers Information</h1>
+            <table class="table col-lg-6 ">
+                <thead class="thead-dark col-lg-6 ">
+                <tr>
+                  <th>
+                    
+                </th>
+                    <th>
+                        Full name
+                    </th>
+                    <th>
+                        Identification
+                    </th>
+                    <th>
+                       Day of birth
+                    </th>
+                    <th>
+                       Email
+                    </th>
+                    <th>
+                       Address
+                    </th>
+                    <th>
+                       Ranks
+                    </th>
+                    <th>
+                      Discount
+                   </th>
+                    <th>
+                       Number of people
+                    </th>
+                    <th>
+                     Rent Days
+                    </th>
+                    <th>
+                       Services
+                    </th>
+                    <th>
+                      Type Rooms
+                    </th>
+                    <th>
+                      price
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="information-edit">
+                    
+                </tbody>
+            </table>
+          </div>
+
+
+          <div class="table-remove show">
+            <h1>Remove customers Information</h1>
+            <table class="table col-lg-6 ">
+                <thead class="thead-dark col-lg-6 ">
+                <tr>
+                  <th>
+                    
+                </th>
+                    <th>
+                        Full name
+                    </th>
+                    <th>
+                        Identification
+                    </th>
+                    <th>
+                       Day of birth
+                    </th>
+                    <th>
+                       Email
+                    </th>
+                    <th>
+                       Address
+                    </th>
+                    <th>
+                       Ranks
+                    </th>
+                    <th>
+                      Discount
+                   </th>
+                    <th>
+                       Number of people
+                    </th>
+                    <th>
+                     Rent Days
+                    </th>
+                    <th>
+                       Services
+                    </th>
+                    <th>
+                      Type Rooms
+                    </th>
+                    <th>
+                      price
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="information-remove">
+                    
+                </tbody>
+            </table>
+          </div>
+
+
+            <div class="table-show show">
+                <h1>Your Details</h1>
+                <table class="table col-lg-6 ">
+                    <thead class="thead-dark col-lg-6 ">
+                    <tr>
+                        <th>
+                            Full name
+                        </th>
+                        <th>
+                            Identification
+                        </th>
+                        <th>
+                           Day of birth
+                        </th>
+                        <th>
+                           Email
+                        </th>
+                        <th>
+                           Address
+                        </th>
+                        <th>
+                           Ranks
+                        </th>
+                        <th>
+                          Discount
+                       </th>
+                        <th>
+                           Number of people
+                        </th>
+                        <th>
+                         Rent Days
+                        </th>
+                        <th>
+                           Services
+                        </th>
+                        <th>
+                          Type Rooms
+                        </th>
+                        <th>
+                          price
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="information">
+                        
+                    </tbody>
+                </table>
+                <!-- <label style="font-size: 50px;">Price:</label><label id="price" style="font-size: 50px;"></label> -->
+                </div>
+
+
+                <div class="form-edit show">
+                  <div>
+                    <h3 id="tag">Edit Customer</h3>
+                  </div>
+                  <br>
+                  <form action="javascript:void(0);" id="saveEdit">
+                    <div class="form-group ">
+                      <label>Full name:</label>
+                      <input type="text" class="form-control" id="fullname1" placeholder="fullname">
+                    </div>
+                    <div class="form-group ">
+                      <label>Identification</label>
+                      <input type="text" class="form-control" id="ID1" placeholder="Identification">
+                    </div>
+                    <div class="form-group ">
+                      <label>Day of birth</label>
+                      <input type="date" class="form-control" id="dayofbirth1" placeholder="Day of birth">
+                    </div>
+                    <div class="form-group ">
+                      <label>Email</label>
+                      <input type="email" class="form-control" id="email1" placeholder="Email">
+                    </div>
+                    <div class="form-group ">
+                      <label>Address</label>
+                      <input type="text" class="form-control" id="Address1" placeholder="Address">
+                    </div>
+                    <div class="form-group">
+                      <label>Ranks</label>
+                      <select id="ranks1" class="form-control">
+                        <option value="Diamond">Diamond</option>
+                        <option value="Platinum">Platinum</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Member">Member</option>
+                      </select>
+                    </div>
+                    <div class="form-group ">
+                      <label>Discount(%)</label>
+                      <input type="text" class="form-control" id="discount1" placeholder="Discount">
+                    </div>
+                    <div class="form-group ">
+                      <label>Number of people</label>
+                      <input type="text" class="form-control" id="numberofpeople1" placeholder="Number of people">
+                    </div>
+                    <div class="form-group ">
+                      <label>Rent Days</label>
+                      <input type="text" class="form-control" id="rentdays1" placeholder="Rent Days">
+                    </div>
+                    <div class="form-group">
+                      <label>Services</label>
+                      <select id="services1" class="form-control">
+                        <option value="Villa">Villa</option>
+                        <option value="House">House</option>
+                        <option value="Room">Room</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Type Rooms</label>
+                      <select id="typerooms1" class="form-control">
+                        <option value="Vip">Vip</option>
+                        <option value="Business">Business</option>
+                        <option value="Normal">Normal</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </form>
+                  </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+  <hr>
+  <hr>
+
+  
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

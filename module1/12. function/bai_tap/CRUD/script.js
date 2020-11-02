@@ -9,8 +9,8 @@ const fetchAll = function(){
     let bookData = ''
     if(books.length > 0){
         for( i = 0; i < books.length; i++){
-            bookData += '<tr>'
-            bookData += '<td>'+ books[i] + '</td>'
+            bookData += '<tr>';
+            bookData += '<td>'+ books[i] + '</td>';
             bookData += '<td><button onclick="Edit('+ i +')">Edit</button></td>';
             bookData += '<td><button onclick="Delete('+ i +')">Delete</button></td>';
             bookData += '</tr>';

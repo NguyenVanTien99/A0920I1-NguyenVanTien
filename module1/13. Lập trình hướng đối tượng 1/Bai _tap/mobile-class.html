@@ -9,20 +9,25 @@
     <script>
         function Mobile(percent){
 
+            this.percent = percent;
             if(percent >= 0 && percent <= 100){
                 alert('Battery: '+ percent)
             }
-            this.percent = percent;
-            this.contentMessage = ''
-            this.inbox = ''
-            this.sent = ''
+           
+            this.contentMessage = [];
+            this.inbox = []
+            this.sent = []
             this.isOn = true
+
+
             if(this.percent<=0){
                 this.isOn = false;
             }
+
             this.powerMobile = function(){
                 return this.isOn = !this.isOn
             }
+
             this.checkPower = function(){
                 if(this.isOn){
                     alert('phone is on')
@@ -30,6 +35,7 @@
                     alert('phone is off')
                 }
             }
+
             this.charge = function(time){
                 if(this.percent < 100){
                   return this.percent += (time*2)
@@ -38,7 +44,7 @@
 
             this.typingMessage = function(string){
                 if(this.isOn){
-                    return this.contentMessage += string
+                    return this.contentMessage.push(string)
                     this.reduceBattery()
                 }else{
                     return 
@@ -47,23 +53,36 @@
 
             this.reciveInbox = function(Message){
                 if(this.isOn){
-                    return this.inbox = Message
+                    return this.inbox.push(Message)
+                    this.reduceBattery()
                 }else{
                     return 
                 }
             }
 
-            this.sendMess = function (otherPhone) {
+            this.sendMess = function (otherPhone,indexMessage) {
                 if (this.isOn) {
-                    otherPhone.reciveInbox(this.contentMessage)
-                    this.sent = this.contentMessage
-                    this.contentMessage
+                    otherPhone.reciveInbox(this.contentMessage[indexMessage])
+                    this.sent.push(this.contentMessage[indexMessage])
+                    this.contentMessage.splice(indexMessage,1)
                     this.reduceBattery()
                 } else {
                     return 
                 }
 
             }
+
+            this.viewInbox = function(indexInbox){
+                return this.inbox[indexInbox]
+                this.reduceBattery()
+            }
+
+            this.viewSent = function(indexSend){
+                return this.sent[indexInbox]
+                this.reduceBattery()
+            }
+
+            
 
             this.reduceBattery = function(){
                 return percent -=1
@@ -74,13 +93,26 @@
         let iphone =  new Mobile(50)
         let samsung = new Mobile(90)
         
-        iphone.charge(10)
-        console.log(iphone.percent);
+        // iphone.charge(10)
+        // console.log(iphone.percent);
 
-        console.log(iphone,samsung);
-        iphone.typingMessage('tối nay chỗ cũ')
-        iphone.sendMess(samsung)
-        console.log(iphone,samsung);
+        // console.log(iphone,samsung);
+        // iphone.typingMessage('tối nay chỗ cũ')
+        // iphone.sendMess(samsung)
+        // console.log(iphone,samsung);
+
+        // iphone.percent
+        // samsung.percent
+        iphone.typingMessage('Tối nay 5 h ở abc');
+        iphone.typingMessage('OK cưng');
+        console.log(iphone.contentMessage);
+
+        iphone.sendMess(samsung,1);
+        console.log(samsung.inbox);
+        console.log(iphone.contentMessage);
+
+    
+        console.log(samsung.viewInbox(0));
 
     </script>
 </body>

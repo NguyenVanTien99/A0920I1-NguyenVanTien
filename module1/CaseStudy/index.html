@@ -28,6 +28,7 @@
           <a class="active">Menu</a>
           <a onclick="addNewCustomer()">1. Add New Customer. </a>
           <a onclick="showCustomer()">2. Display Information Customer.</a>
+          <a onclick="showPriceCustomer()">2. Display total pay of Customer.</a>
           <a onclick="editCustomer()">3. Edit Information Customer.</a>
           <a onclick="deleteCustomer()">4. Delete Customer.</a>
           <a onclick="exit()">5. Exit</a>
@@ -40,34 +41,34 @@
           <h3 id="tag">Add New Customer</h3>
         </div>
         <br>
-        <form action="javascript:void(0);" onsubmit="add()">
-          <div class="form-group ">
+        <form action="javascript:void(0);"  onsubmit="add()">
+          <div class="form-group required" >
             <label>Full name:</label>
             <input type="text" class="form-control" id="fullname" placeholder="fullname">
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Identification</label>
             <input onchange="validateID()" type="text" class="form-control" id="ID" placeholder="Identification">
             <div class="alert alert-danger alert-ID show" role="alert">
               ID is not valid
             </div>
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Day of birth</label>
             <input type="date" class="form-control" id="dayofbirth" placeholder="Day of birth">
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Email</label>
             <input onchange="validateEmail()" type="email" class="form-control" id="email" placeholder="Email">
             <div class="alert alert-danger alert-email show" role="alert">
               Email is not valid
             </div>
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Address</label>
             <input type="text" class="form-control" id="Address" placeholder="Address">
           </div>
-          <div class="form-group">
+          <div class="form-group required">
             <label>Ranks</label>
             <select id="ranks" class="form-control">
               <option value="Diamond">Diamond</option>
@@ -77,25 +78,28 @@
               <option value="Member">Member</option>
             </select>
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Discount(%)</label>
-            <input type="text" class="form-control" id="discount" placeholder="Discount">
+            <input onchange="validateDiscount()" type="text" class="form-control" id="discount" placeholder="Discount">
+            <div class="alert alert-danger alert-discount show" role="alert">
+              Number is not valid
+            </div>
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Number of people</label>
             <input onchange="validatePp()" type="text" class="form-control" id="numberofpeople" placeholder="Number of people">
             <div class="alert alert-danger alert-pp show" role="alert">
               Number is not valid
             </div>
           </div>
-          <div class="form-group ">
+          <div class="form-group required">
             <label>Rent Days</label>
             <input onchange="validateRentDay()" type="text" class="form-control" id="rentdays" placeholder="Rent Days">
             <div class="alert alert-danger alert-rentday show" role="alert">
               Number is not valid
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group required">
             <label>Services</label>
             <select id="services" class="form-control">
               <option value="Villa">Villa</option>
@@ -103,7 +107,7 @@
               <option value="Room">Room</option>
             </select>
           </div>
-          <div class="form-group">
+          <div class="form-group required" required >
             <label>Type Rooms</label>
             <select id="typerooms" class="form-control">
               <option value="Vip">Vip</option>
@@ -113,6 +117,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Add Customer</button>
         </form>
+        
         </div>
 
 
@@ -285,6 +290,32 @@
                 </table>
                 <!-- <label style="font-size: 50px;">Price:</label><label id="price" style="font-size: 50px;"></label> -->
                 </div>
+
+
+                <div class="table-show-price show">
+                  <h1>Your Price</h1>
+                  <table class="table col-lg-6 ">
+                      <thead class="thead-dark col-lg-6 ">
+                      <tr>
+                        <th>
+                    
+                        </th>
+                          <th>
+                              Full name
+                          </th>
+                          <th>
+                              Identification
+                          </th>
+                      </tr>
+                      </thead>
+                      <tbody id="information-price">
+                          
+                      </tbody>
+                  </table>
+                  <!-- <label style="font-size: 50px;">Price:</label><label id="price" style="font-size: 50px;"></label> -->
+                  </div>
+
+                  <h2 id="lable-price"></h2>
 
 
                 <div class="form-edit show">

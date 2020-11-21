@@ -43,6 +43,21 @@
 
         document.writeln('<br>')
 
+            for (let i = 1; i <= 5; i++) {
+                // khoang trang &nbsp
+                for (let j = i; j <= 4; j++) {
+                    console.log(i);
+                    document.writeln('*')
+                }
+                for (let j = 1; j <= i; j++) {
+                    document.writeln('*')
+                }
+
+                document.writeln('<br>')
+            }
+
+        document.writeln('<br>')
+
         for (let i = 1; i <= 5; i++) {
             // khoang trang &nbsp
 
@@ -70,7 +85,19 @@
             document.writeln('<br>')
         }
 
+        function staircase(n) {
+    for(let i = 1; i<=n; i++){
+        for(let j=i; j<= n-1;j++){
+           console.log(' ')
+        }
+        for(let j=1; j <=i ; j++){
+            console.log('#')
+        }
+        console.log('\n')
+    }
+}
 
+staircase(6)
             
     </script>
 </body>

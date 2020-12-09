@@ -58,3 +58,86 @@
 
 
 <!-- chinh hop, to hop, giai thua -->
+using System;
+
+namespace BTPhanSo
+
+{
+
+  class PhanSo
+
+    {
+
+    int  tu,mau;
+
+    public PhanSo()  //hàm khởi tạo không tham số
+
+    {
+
+    tu=0;
+
+    mau=1;
+
+    }
+
+    public  PhanSo(int  x)   // hàm khởi tạo 1 tham số
+
+    {
+
+    tu=x;
+
+    mau=1;
+
+    }
+
+    public  PhanSo(int t, int m)  // Hàm khởi tạo 2 tham số
+
+    {
+
+    tu=t;
+
+    mau=m;
+
+    }
+
+ 
+
+    public void XuatPhanSo()  // Xuất Phân Số  a/b
+
+    {
+
+    Console.WriteLine("{0}/{1}",tu,mau);
+
+   
+
+    }
+
+    public PhanSo CongPS(PhanSo ps1)
+
+    {
+
+        int ts=tu*ps1.mau+mau*ps1.tu;
+
+        int ms=mau*ps1.mau;
+
+        PhanSo ketqua=new PhanSo(ts,ms);
+
+        return ketqua;
+
+    }  //class PhanSo
+
+ 
+
+//các phương thức khác
+
+ 
+
+      static void Main(string[] args)
+
+        {
+
+         //Cài đặt chương trình
+
+        }
+
+}

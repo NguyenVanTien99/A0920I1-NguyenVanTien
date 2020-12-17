@@ -1,6 +1,6 @@
 package inheritance_java.exercises.point2d_point3d;
 
-public class Point3D extends Point2d {
+public class Point3D extends Point2D {
     private float z = 0.0f;
 
     public Point3D() {
@@ -20,7 +20,9 @@ public class Point3D extends Point2d {
     }
 
     public void setXYZ(float x, float y, float z){
-
+        setX(x);
+        setY(y);
+        this.z = z;
     }
 
     public float[] getXYZ(){

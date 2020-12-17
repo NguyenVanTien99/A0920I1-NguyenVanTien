@@ -1,13 +1,13 @@
 package inheritance_java.exercises.point2d_point3d;
 
-public class Point2d {
+public class Point2D {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    public Point2d() {
+    public Point2D() {
     }
 
-    public Point2d(float x, float y) {
+    public Point2D(float x, float y) {
         this.x = x;
         this.y = y;
     }

@@ -37,6 +37,8 @@ public class ProductManager {
         System.out.println("Enter id of product you want edit ");
         int idProduct = input.nextInt();
         input.nextLine();
+
+
         for(int i = 0; i < listProduct.size(); i++){
             if(idProduct == listProduct.get(i).getId()){
                 System.out.println(listProduct.get(i));

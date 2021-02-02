@@ -1,4 +1,4 @@
-package controllers._0_main_menu;
+package controllers.file;
 
 import commons.FileUntil;
 import controllers._1_service_menu.AddServicesMainMenu;
@@ -15,14 +15,14 @@ public class ReadFile {
     public static final String PATH_FILE_ROOM = "src/data/room.csv";
     public static final String PATH_FILE_HOUSE = "src/data/house.csv";
     public static final String PATH_FILE_CUSTOMER = "src/data/customer.csv";
-    public static final String PATH_FILE_CONTRACT = "src/data/contract.csv";
     public static final String PATH_FILE_BOOKING = "src/data/booking.csv";
+    public static final String PATH_FILE_EMPLOYEE = "src/data/employee.csv";
     public static List<Villa> villaList;
     public static List<House> houseList;
     public static List<Room> roomList;
     public static List<Customer> customerList;
     public static List<Customer> bookingList;
-    public static List<Contract> contractsList;
+    public static Map<String,Employee> employeeList;
 
 
     public static void readFileVilla(){
@@ -64,9 +64,36 @@ public class ReadFile {
         }
     }
 
+    public static void readFileBooking(){
+        readFileVilla();
+        readFileHouse();
+        readFileRoom();
+        bookingList = new ArrayList<>();
+        List<String> stringList = FileUntil.readFromFile(PATH_FILE_BOOKING);
+        Services services = null ;
+        for(String string: stringList){
+            String[] stringSplit = string.split(",");
+            for (Villa villa : villaList){
+                if(villa.getId().equals(stringSplit[8]));
+                services = villa;
+            }
+            for (Room room : roomList){
+                if(room.getId().equals(stringSplit[8]));
+                services = room;
+            }
+            for (House house : houseList){
+                if(house.getId().equals(stringSplit[8]));
+                services = house;
+            }
+            Customer customer = new Customer(stringSplit[0],stringSplit[1],stringSplit[2],
+                                stringSplit[3], stringSplit[4], stringSplit[5],stringSplit[6], stringSplit[7], services);
+            bookingList.add(customer);
+        }
+    }
+
     public static void readFileCustomer(){
         customerList = new ArrayList<>();
-                List<String> stringList = FileUntil.readFromFile(PATH_FILE_CUSTOMER);
+        List<String> stringList = FileUntil.readFromFile(PATH_FILE_CUSTOMER);
         for(String string : stringList){
             String[] stringSplit = string.split(",");
             Customer customer = new Customer(stringSplit[0],stringSplit[1],stringSplit[2],
@@ -75,19 +102,15 @@ public class ReadFile {
         }
     }
 
-    public static void readFileContract(){
-        contractsList = new ArrayList<>();
-        List<String> stringList = FileUntil.readFromFile(PATH_FILE_CONTRACT);
-        for(String string : stringList){
+    public static void readfileEmployee(){
+        employeeList = new TreeMap<>();
+        List<String> StringList = FileUntil.readFromFile(PATH_FILE_EMPLOYEE);
+        for (String string : StringList){
             String[] stringSplit = string.split(",");
-            Contract contract = new Contract(stringSplit[0],stringSplit[1],stringSplit[2],
-                    Double.parseDouble(stringSplit[3]), Double.parseDouble(stringSplit[4]));
-            contractsList.add(contract);
+            Employee employee = new Employee(stringSplit[0],stringSplit[1],stringSplit[2],
+                    stringSplit[3], stringSplit[4], stringSplit[5],stringSplit[6], stringSplit[7],stringSplit[8],Double.parseDouble(stringSplit[9]), stringSplit[10]);
+            employeeList.put(stringSplit[10], employee);
         }
+
     }
-
-
-
-
-
 }

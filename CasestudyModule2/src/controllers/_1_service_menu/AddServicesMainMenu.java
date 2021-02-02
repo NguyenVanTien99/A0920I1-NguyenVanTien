@@ -1,20 +1,25 @@
 package controllers._1_service_menu;
 
-import com.sun.tools.javac.Main;
+import Validation.RegularException;
 import commons.FileUntil;
 import controllers._0_main_menu.MainController;
+import controllers.file.ReadFile;
+import exceptions.AreaServiceException;
+import exceptions.CostServicesException;
+import exceptions.IdServicesException;
+import exceptions.NameServicesException;
 import models.House;
 import models.Room;
 import models.Villa;
 
 import java.util.Scanner;
 
-public class ServicesMainMenu {
+public class AddServicesMainMenu {
     public static Scanner scanner = new Scanner(System.in);
     private static String nameServices;
-    private static double area;
-    private static double cost;
-    private static int amountOfPeopleMax;
+    private static String area;
+    private static String cost;
+    private static String amountOfPeopleMax;
     private static String rentType;
 
     public static void addNewServices(){
@@ -31,7 +36,6 @@ public class ServicesMainMenu {
             );
             System.out.println("please choose");
             choose = scanner.nextLine();
-//            choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case "1" :
                     addNewVilla();
@@ -59,90 +63,271 @@ public class ServicesMainMenu {
 
     }
 
+    /*INPUT GENERAL INFORMATION FOR SERVICES*/
+
     public static void generalInformationServices() {
-        System.out.println("Enter the name services");
-        nameServices = scanner.nextLine();
-        System.out.println("Enter the area");
-        area = scanner.nextDouble();
-        System.out.println("Enter the cost");
-        cost = scanner.nextDouble();
-        System.out.println("Enter the mount of people: ");
-        amountOfPeopleMax = scanner.nextInt();
-        System.out.println("Enter the rent type");
-        scanner.nextLine();
-        rentType = scanner.nextLine();
+        boolean flag;
+
+        do {
+            flag = true;
+            try {
+                System.out.println("Enter the name services");
+                nameServices = scanner.nextLine();
+                RegularException.validateNameService(nameServices);
+            } catch (NameServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+        }while (!flag);
+
+        do {
+            flag = true;
+            try {
+                System.out.println("Enter the area");
+                area = scanner.nextLine();
+                RegularException.validateAreaService(area);
+            } catch (AreaServiceException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+        }while (!flag);
+
+        do {
+            flag = true;
+            try {
+                System.out.println("Enter the cost");
+                cost = scanner.nextLine();
+                RegularException.validateCostService(cost);
+            } catch (CostServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+        }while (!flag);
+
+        do {
+            flag = true;
+
+            try {
+                System.out.println("Enter the mount of people: ");
+                amountOfPeopleMax = scanner.nextLine();
+                RegularException.validateAmountPeopleService(amountOfPeopleMax);
+            }catch (NumberFormatException e){
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+        }while (!flag);
+
+        do {
+            flag = true;
+            try {
+                System.out.println("Enter the rent type");
+                rentType = scanner.nextLine();
+                RegularException.validateNameService(rentType);
+            } catch (NameServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+        }while (!flag);
     }
 
+    /*ADD NEW ROOM*/
+
     public static void addNewRoom() {
+        ReadFile.readFileRoom();
         String idRoom;
         String accompaniedServiceFree;
 
-        System.out.println("Enter the id room");
-        idRoom = scanner.nextLine();
+        boolean flag;
+
+        do {
+            flag = true;
+            System.out.println("Enter the id room");
+            idRoom = scanner.nextLine();
+            try {
+                RegularException.validateIdRoom(idRoom);
+            } catch (IdServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+            for(Room room : ReadFile.roomList){
+                if(room.getId().equals(idRoom)){
+                    System.out.println("ID have exists");
+                    flag = false;
+                }
+            }
+
+        }while (!flag);
 
         generalInformationServices();
 
         System.out.println("Enter the accompanied Service Free");
         accompaniedServiceFree = scanner.nextLine();
 
-        Room room = new Room(idRoom, nameServices, area, cost,
-                amountOfPeopleMax, rentType, accompaniedServiceFree);
+        Room room = new Room(idRoom, nameServices, Double.parseDouble(area), Double.parseDouble(cost),
+                            Integer.parseInt(amountOfPeopleMax), rentType, accompaniedServiceFree);
         String line = room.addFileCsv();
-        FileUntil.writeInFile(MainController.PATH_FILE_ROOM, line);
+        FileUntil.writeInFile(ReadFile.PATH_FILE_ROOM, line);
+        System.out.println("SUCCESS");
 
     }
 
+    /*ADD NEW HOUSE*/
+
     public static void addNewHouse() {
+        ReadFile.readFileHouse();
+        boolean flag;
+
         String idHouse;
         String standardRoom;
         String comfortDescription;
         String numberofFloors;
 
-        System.out.println("Enter the id house");
-        idHouse = scanner.nextLine();
+        do {
+            flag = true;
+            System.out.println("Enter the id house");
+            idHouse = scanner.nextLine();
+            try {
+                RegularException.validateIdHouse(idHouse);
+            } catch (IdServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+            for(House house : ReadFile.houseList){
+                if(house.getId().equals(idHouse)){
+                    System.out.println("ID have exists");
+                    flag = false;
+                }
+            }
+
+        }while (!flag);
 
         generalInformationServices();
 
-        System.out.println("Enter the standard Room");
-        standardRoom = scanner.nextLine();
+        do{
+            flag = true;
+            System.out.println("Enter the standard room");
+            standardRoom = scanner.nextLine();
+            try {
+                RegularException.validateNameService(standardRoom);
+            } catch (NameServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+
+        }while (!flag);
+
         System.out.println("Enter the comfort Description");
         comfortDescription = scanner.nextLine();
-        System.out.println("Enter the number of Floors");
-        numberofFloors = scanner.nextLine();
 
-        House house = new House(idHouse, nameServices, area, cost,
-                amountOfPeopleMax, rentType, standardRoom, comfortDescription, Integer.parseInt(numberofFloors));
+        do{
+            flag = true;
+            System.out.println("Enter number Of Floors");
+            numberofFloors = scanner.nextLine();
+            try {
+                RegularException.validateNumberOfFloorService(numberofFloors);
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+
+        }while (!flag);
+
+        House house = new House(idHouse, nameServices, Double.parseDouble(area), Double.parseDouble(cost),
+                                Integer.parseInt(amountOfPeopleMax), rentType, standardRoom, comfortDescription,
+                                Integer.parseInt(numberofFloors));
         String line = house.addFileCsv();
-        FileUntil.writeInFile(MainController.PATH_FILE_HOUSE, line);
+        FileUntil.writeInFile(ReadFile.PATH_FILE_HOUSE, line);
+        System.out.println("SUCCESS");
     }
 
+    /*ADD NEW VILLA*/
+
     public static void addNewVilla() {
-        String idVilla;
+
+        ReadFile.readFileVilla();
+
+        boolean flag;
+        
+        String idVilla = null;
         String standardRoom;
         String comfortableDecription;
-        double poolArea;
+        String poolArea;
         String numberOfFloors;
+        do{
+            flag = true;
+            try {
+                System.out.println("Enter the id villa");
+                idVilla = scanner.nextLine();
+                RegularException.validateIdVilla(idVilla);
 
-        System.out.println("Enter the id villa");
-        idVilla = scanner.nextLine();
-
+            }catch (IdServicesException e){
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+            
+            for (Villa villa : ReadFile.villaList){
+                if (villa.getId().equals(idVilla)){
+                    System.out.println("ID have exists");
+                    flag = false;
+                }
+            }
+            
+        }while (!flag);
+        
         generalInformationServices();
 
-        System.out.println("Enter the standard room");
-        standardRoom = scanner.nextLine();
+        do{
+            flag = true;
+            System.out.println("Enter the standard room");
+            standardRoom = scanner.nextLine();
+            try {
+                RegularException.validateNameService(standardRoom);
+            } catch (NameServicesException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+
+        }while (!flag);
+
+
         System.out.println("Enter comfortable Decription");
         comfortableDecription = scanner.nextLine();
-        System.out.println("Enter the pool Area");
-        poolArea = scanner.nextDouble();
-        System.out.println("Enter number Of Floors");
-        numberOfFloors = scanner.nextLine();
 
-        Villa villa = new Villa(idVilla, nameServices, area, cost,
-                                amountOfPeopleMax, rentType, standardRoom
-                                ,comfortableDecription, poolArea, Integer.parseInt(numberOfFloors));
+        do{
+            flag = true;
+            System.out.println("Enter the pool Area");
+            poolArea = scanner.nextLine();
+            try {
+                RegularException.validateAreaService(poolArea);
+            } catch (AreaServiceException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+
+        }while (!flag);
+
+        do{
+            flag = true;
+            System.out.println("Enter number Of Floors");
+            numberOfFloors = scanner.nextLine();
+            try {
+                RegularException.validateNumberOfFloorService(numberOfFloors);
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                flag = false;
+            }
+
+        }while (!flag);
+
+
+        Villa villa = new Villa(idVilla, nameServices, Double.parseDouble(area), Double.parseDouble(cost),
+                                Integer.parseInt(amountOfPeopleMax), rentType, standardRoom
+                                ,comfortableDecription, Double.parseDouble(poolArea), Integer.parseInt(numberOfFloors));
 
         String line = villa.addFileCsv();
-        FileUntil.writeInFile(MainController.PATH_FILE_VILLA, line);
+        FileUntil.writeInFile(ReadFile.PATH_FILE_VILLA, line);
+
+        System.out.println("SUCCESS");
 
     }
 }

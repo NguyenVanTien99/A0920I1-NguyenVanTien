@@ -1,4 +1,7 @@
 package exceptions;
 
-public class CustomerInforMationCustomer {
+public class CustomerInformationException extends Exception {
+    public CustomerInformationException(String message) {
+        super(message);
+    }
 }

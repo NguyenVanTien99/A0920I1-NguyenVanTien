@@ -2,14 +2,14 @@ package controllers._2_customer_menu;
 
 import Validation.RegularException;
 import commons.FileUntil;
-import controllers._0_main_menu.MainController;
+import controllers.file.ReadFile;
 import exceptions.CustomerInformationException;
 import exceptions.DateOfBirthExcetion;
 import models.Customer;
 
 import java.util.Scanner;
 
-public class AddCustomerMainMenu {
+public class AddCustomer {
     public static Scanner scanner = new Scanner(System.in);
     public static void addNewCustomer(){
         boolean flag;
@@ -51,7 +51,7 @@ public class AddCustomerMainMenu {
             System.out.println("Enter the Gender");
             gender = scanner.nextLine();
             try {
-                RegularException.validateGender(gender);
+                RegularException.validateGender(gender.toLowerCase());
             } catch (CustomerInformationException e) {
                 System.out.println(e.getMessage());
                 flag = false;
@@ -119,7 +119,9 @@ public class AddCustomerMainMenu {
 
         String line = customer.addInformationCustomerCsv();
 
-        FileUntil.writeInFile(MainController.PATH_FILE_CUSTOMER, line);
+        FileUntil.writeInFile(ReadFile.PATH_FILE_CUSTOMER, line);
+
+        System.out.println("SUCCESS");
 
     }
 }

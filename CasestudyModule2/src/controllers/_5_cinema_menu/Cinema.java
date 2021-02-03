@@ -51,7 +51,7 @@ public class Cinema {
                     break;
 
             }
-        } while (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) < 5);
+        } while (Integer.parseInt(choice) > 0 && Integer.parseInt(choice) < 4);
     }
 
     private static void checkSoldOut() {

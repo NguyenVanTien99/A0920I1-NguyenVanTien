@@ -22,6 +22,7 @@ public class RegularException {
     private static final String NUMBER_PHONE_RG = "^\\d{10}$";
     private static final String EMAIL_RG = "^\\w{3,}(\\.?\\w+)*@[a-z]{2,7}(.[a-z]{2,5}){1,3}$";
     private static final String CUSTOMER_TYPE_RG = "^(member|sliver|gold|platinum|diamond|Member|Sliver|Gold|Platinum|Diamond)$";
+    private static final String ID_EMPLOYEE = "EP-\\d{4}";
 
 
     private static Pattern pattern;
@@ -48,6 +49,14 @@ public class RegularException {
         matcher = pattern.matcher(idRoom);
         if(!matcher.matches()){
             throw new IdServicesException("ID Room has a format SVRO-XXXX (X : 0 - 9 ) ");
+        }
+    }
+
+    public static void validateIdEmployee(String idEmployee) throws IdServicesException {
+        pattern = Pattern.compile(ID_EMPLOYEE);
+        matcher = pattern.matcher(idEmployee);
+        if(!matcher.matches()){
+            throw new IdServicesException("ID Room has a format EP-XXXX (X : 0 - 9 ) ");
         }
     }
 

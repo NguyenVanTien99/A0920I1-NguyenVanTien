@@ -8,6 +8,7 @@ import controllers._3_booking_menu.AddBooking;
 import controllers._3_booking_menu.ShowBooking;
 import controllers._4_employee_menu.ShowEmployee;
 import controllers._5_cinema_menu.Cinema;
+import controllers._6_profile_employee.ProfileEmployee;
 
 import java.util.Scanner;
 
@@ -26,8 +27,9 @@ public class MainController {
                             + "5.Add new booking \n"
                             + "6.show information booking \n"
                             + "7.Show informaton of Employee \n"
-                            + "8.cinema \n"
-                            + "9.Exit \n"
+                            + "8.Cinema \n"
+                            + "9.Profile Employee \n"
+                            + "10.Exit \n"
                             + "-----------------------------------"
             );
             System.out.println("Please choose ");
@@ -58,6 +60,9 @@ public class MainController {
                     Cinema.cinemaMenu();
                     break;
                 case "9":
+                    ProfileEmployee.profileEmployee();
+                    break;
+                case "10":
                     System.exit(0);
                     break;
                 default:

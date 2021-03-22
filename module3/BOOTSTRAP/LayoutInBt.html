@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootStrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <style>
+        header {
+            position: relative;
+        }
+        .shopping-mall {
+            margin-top: auto;
+            font-variant: small-caps;
+        }
+        .shopping-mall>h1 {
+            font-family: Impact;
+            font-size: 50px;
+            color: white;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 2px black;
+            padding-bottom: 0px;
+            border-bottom: 1px dotted gray;
+            margin: 0px;
+            width: 49%;
+        }
+        .shopping-mall>h5 {
+            margin-top: 5px;
+            letter-spacing: 0.5px;
+            font-size: small;
+        }
+
+        .poly-cart{
+        margin-top: 5px;
+        }
+        .poly-cart ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        font-variant: small-caps;
+        }
+        .poly-cart .panel-heading strong {
+        font-variant: small-caps;   
+        font-size: larger;
+        text-shadow: 0 0 2px darkgray;
+        }
+        .poly-prod{
+        display: inline-block;    
+        text-align:center;
+        padding:5px;
+        }
+        .poly-prod .panel-body img{
+        height: 150px;
+        max-width: 95%;
+        }
+        .card-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 16px;
+        color: inherit;
+        }
+        a.list-group-item, button.list-group-item {
+        color: #555;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container" style = "height: auto">
+    <!-- header -->
+    <header class="row">
+        <div class="col-sm-8 shopping-mall">
+            <h1>Online shopping mall</h1>
+            <h5>The center point of the professional programming</h5>
+          </div>
+          <img class="col-sm-4" style="width: 400px; height: 250px;" src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" />
+    </header>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fa fa-home" aria-hidden="true"></i></span>Trang chủ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><i class="fa fa-list-alt" aria-hidden="true"></i>Giới thiệu <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><i class="fa fa-envelope" aria-hidden="true"></i></i>Liên hệ</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa fa-question" aria-hidden="true"></i></i>Góp ý</a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i>Hỏi đáp</a>
+              </li> 
+
+            <li class="nav-item dropdown ">
+                
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <!-- content -->
+    <div class = "row">
+
+        <article class="col-sm-9">
+
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 poly-prod">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Nokia
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <img src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg" height="228" width="292"></div>
+                    <div class="panel-footer">
+                            $ 100.25
+                    </div>
+                </div>
+            </div>
+
+              
+     
+         </article>
+
+        <aside class="col-sm-3">
+            <div class="card card-default">
+                <div class="card-body">
+                  <form>
+                    <input placeholder="Keywords" class="form-control" />
+                  </form>
+                </div>
+              </div>
+            <div class="poly-cart">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="col-sm-5" style="width: 100px; height: 100px;" src="https://halotravel.vn/wp-content/uploads/2020/07/thach_trangg_101029297_573874646879779_1794923475739360981_n.jpg"/>
+                        <ul class="col-sm-7">
+                            <li>100 items</li>
+                            <li>$56.8</li>
+                            <li><a href="#">Xem giỏ hàng</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+
+            <div class="card">
+                <div class="card-header">
+                  <span class="glyphicon glyphicon-th-list"></span>
+                  <strong>Chủng Loại</strong>
+                </div>
+                <div class="list-group">
+                  <a href="#" class="list-group-item">Điện thoại di động</a>
+                  <a href="#" class="list-group-item">Máy tính xách tay</a>
+                  <a href="#" class="list-group-item">Máy tính để bàn</a>
+                  <a href="#" class="list-group-item">Quạt máy</a>
+                  <a href="#" class="list-group-item">Tivi</a>
+                  <a href="#" class="list-group-item">Tủ lạnh</a>
+                </div>
+              </div>
+        </aside>
+
+    </div>
+    <!-- Footer -->
+    <footer class="card">
+        <div class = "card-header text-center">
+            <p>CodeGym &copy; 2017</p>
+        </div>
+    </footer>
+
+    </div>
+</body>
+</html>

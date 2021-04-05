@@ -79,8 +79,8 @@
                             <td>${product.getPrice()}</td>
                             <td>${product.getDescription()}</td>
                             <td>${product.getCountry()}</td>
-                            <td><a href="">edit</a></td>
-                            <td><a href="">delete</a></td>
+                            <td><a href="/edit?id=${product.getId()}">edit</a></td>
+                            <td><a href="/delete?id=${product.getId()}">delete</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -1,5 +1,6 @@
 package controller;
 
+import model.Product;
 import services.IProductService;
 import services.impl.ProductService;
 
@@ -19,6 +20,17 @@ public class CreateProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = (int)(Math.random() * 10000);
+        String name = request.getParameter("name");
+        Double price = Double.parseDouble(request.getParameter("price"));
+        String description = request.getParameter("description");
+        String country = request.getParameter("country");
+
+        Product product = new Product(id, name, price, description, country);
+
+        service.saveProduct(product);
+
+        response.sendRedirect("/list");
 
     }
 }

@@ -18,35 +18,42 @@
 
 
 <div class="container">
-    <h2>New Product</h2>
+    <h2>Edit Product</h2>
 
-    <form class="form-horizontal" action="/create" method="post">
+    <form class="form-horizontal" action="/edit" method="post">
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" >id:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="id" placeholder="Enter id" name="id" value="${product.getId()}">
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" >Name:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="${product.getName()}">
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" >Price:</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+                <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" value="${product.getPrice()}">
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2">Description:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="description" placeholder="Enter description" name="description">
+                <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" value="${product.getDescription()}">
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" >Country:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="country" placeholder="Enter country" name="country">
+                <input type="text" class="form-control" id="country" placeholder="Enter country" name="country" value="${product.getCountry()}">
             </div>
         </div>
 

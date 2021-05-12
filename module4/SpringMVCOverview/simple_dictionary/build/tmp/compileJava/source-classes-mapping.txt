@@ -1,0 +1,12 @@
+com/service/DictionaryService.java
+ com.service.DictionaryService
+com/model/Dictionary.java
+ com.model.Dictionary
+com/repository/IDictionary.java
+ com.repository.IDictionary
+com/controllers/Home.java
+ com.controllers.Home
+com/service/iDictionaryService.java
+ com.service.iDictionaryService
+com/repository/DictionaryIpml.java
+ com.repository.DictionaryIpml
